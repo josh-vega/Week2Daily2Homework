@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btnInsert:
-                if(name != null && major != null && minor != null && gpa != null && dob != null && city != null && state != null && ssn != null){
+                if(name != null && major != null && minor != null && gpa != null && dob != null && city != null && state != null && ssn != null &&
+                !name.isEmpty() && !major.isEmpty() && !minor.isEmpty() && !gpa.isEmpty() && !dob.isEmpty() && !city.isEmpty() && !state.isEmpty() && !ssn.isEmpty()){
                     Students students = new Students(name, major, minor, Double.parseDouble(gpa), dob, city, state, Integer.parseInt(ssn));
                     mySqlDatabaseHelper.insertStudent(students);
                     Toast.makeText(this, students.getName() + " has been inserted.", Toast.LENGTH_SHORT);
@@ -67,13 +68,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.btnDelete:
-                if(ssn != null){
+                if(ssn != null && !ssn.isEmpty()){
                     mySqlDatabaseHelper.deleteStudent(ssn);
                     Toast.makeText(this, "Delete operation carried out", Toast.LENGTH_SHORT);
                 }
                 break;
             case R.id.btnGet:
-                if(ssn != null){
+                if(ssn != null && !ssn.isEmpty()){
                     student = mySqlDatabaseHelper.getStudent(ssn);
                     etName.setText(student.getName());
                     etMajor.setText(student.getMajor());
