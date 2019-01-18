@@ -41,6 +41,42 @@ public class MySqlDatabaseHelper extends SQLiteOpenHelper {
                 + FIELD_STATE + " TEXT, "
                 + FIELD_SSN + " TEXT PRIMARY KEY);";
         db.execSQL(createQuery);
+
+        Students student = new Students("Josh", "Computer Science", "Religion", 3.8, "12/27/1995", "LaGrange", "GA", 555555555);
+        ContentValues content = new ContentValues();
+        content.put(FIELD_NAME, student.getName());
+        content.put(FIELD_MAJOR, student.getMajor());
+        content.put(FIELD_MINOR, student.getMinor());
+        content.put(FIELD_GPA, student.getGpa());
+        content.put(FIELD_DOB, student.getDob());
+        content.put(FIELD_CITY, student.getHomeCity());
+        content.put(FIELD_STATE, student.getHomeState());
+        content.put(FIELD_SSN, student.getSsn());
+        db.insert(TABLE_NAME, null, content);
+
+        student = new Students("Michelle", "Psychology", "Communication", 4.0, "10/08/1976", "Manhattan", "NY", 666666666);
+        content = new ContentValues();
+        content.put(FIELD_NAME, student.getName());
+        content.put(FIELD_MAJOR, student.getMajor());
+        content.put(FIELD_MINOR, student.getMinor());
+        content.put(FIELD_GPA, student.getGpa());
+        content.put(FIELD_DOB, student.getDob());
+        content.put(FIELD_CITY, student.getHomeCity());
+        content.put(FIELD_STATE, student.getHomeState());
+        content.put(FIELD_SSN, student.getSsn());
+        db.insert(TABLE_NAME, null, content);
+
+        student = new Students("Herman", "Physical Training", "Education", 2.7, "08/15/1968", "Bronx", "NY", 777777777 );
+        content = new ContentValues();
+        content.put(FIELD_NAME, student.getName());
+        content.put(FIELD_MAJOR, student.getMajor());
+        content.put(FIELD_MINOR, student.getMinor());
+        content.put(FIELD_GPA, student.getGpa());
+        content.put(FIELD_DOB, student.getDob());
+        content.put(FIELD_CITY, student.getHomeCity());
+        content.put(FIELD_STATE, student.getHomeState());
+        content.put(FIELD_SSN, student.getSsn());
+        db.insert(TABLE_NAME, null, content);
     }
 
     @Override
